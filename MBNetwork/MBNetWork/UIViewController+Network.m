@@ -7,14 +7,10 @@
 //
 
 #import "UIViewController+Network.h"
-#import <objc/runtime.h>
 #import "MBNetworkWebServiceManager.h"
+#import <objc/runtime.h>
 
 static char associatedNetWorkManagerKey; //用于关联网络请求管理对象
-
-//- (void)setNetworkManager:(MBNetWorkManager *)networkManager {
-//   
-//}
 
 @implementation UIViewController (Network)
 - (MBNetWorkManager *)networkManager {
@@ -26,18 +22,21 @@ static char associatedNetWorkManagerKey; //用于关联网络请求管理对象
 }
 
 - (void)configNetworkBlock {
-    
-    if (![self networkManager]) {
+    if (![self networkManager])
+    {
         MBNetWorkManager *manager = [[MBNetworkWebServiceManager alloc] init];
-        manager.beginRequestBlock = ^(MBNetworkRequestModel *requestModel) {
+        manager.beginRequestBlock = ^(MBNetworkRequestModel *requestModel)
+        {
             [self beginRequestBlockWithRequest:requestModel];
         };
         
-        manager.succeedRequestBlock = ^(MBNetworkRequestModel *requestModel, MBNetworkResponseModel *responseModel){
+        manager.succeedRequestBlock = ^(MBNetworkRequestModel *requestModel, MBNetworkResponseModel *responseModel)
+        {
             [self succeedRequestBlockWithRequest:requestModel responseModel:responseModel];
         };
         
-        manager.failedRequestBlock = ^(MBNetworkRequestModel *requestModel, MBNetworkResponseModel *responseModel) {
+        manager.failedRequestBlock = ^(MBNetworkRequestModel *requestModel, MBNetworkResponseModel *responseModel)
+        {
             [self failedRequestBlockWithRequest:requestModel responseModel:responseModel];
         };
         [self setNetworkManager:manager];
@@ -52,7 +51,8 @@ static char associatedNetWorkManagerKey; //用于关联网络请求管理对象
 
 #pragma mark - MBNetworkDelegate
 - (void)beginRequestBlockWithRequest:(MBNetworkRequestModel *)requestModel {
-    if ([requestModel.activityAlertString length] >0) {
+    if ([requestModel.activityAlertString length] >0)
+    {
         [self showAlterViewWithContent:requestModel.activityAlertString];
     }
 }
@@ -62,12 +62,13 @@ static char associatedNetWorkManagerKey; //用于关联网络请求管理对象
 }
 
 - (void)failedRequestBlockWithRequest:(MBNetworkRequestModel *)requestModel responseModel:(MBNetworkResponseModel *)responseModel {
-    
+    [self showAlterViewWithContent:responseModel.m];
 }
 
 #pragma mark - 
 - (void)showAlterViewWithContent:(NSString *)alertString {
-    if ([alertString length] >0) {
+    if ([alertString length] >0)
+    {
         NSLog(@"指示器提示");
     }
 }

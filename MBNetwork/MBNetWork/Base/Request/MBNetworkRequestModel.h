@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//@protocol MBRequestModelProtocol <NSObject>
-//
-//@required
-//- (NSString *)networkAPI;
-//
-//@end
-
 @interface MBNetworkRequestModel : NSObject {
     @protected
     NSMutableDictionary * _jsonDict;
@@ -38,7 +31,10 @@
  */
 - (NSString *)getRequestJsonStr;
 
-
-
+/*!
+ @abstract 获取请求网络的接口标示
+ @method networkAPI
+ @return 返回网络请求接口标示
+ */
 - (NSString *)networkAPI;
 @end

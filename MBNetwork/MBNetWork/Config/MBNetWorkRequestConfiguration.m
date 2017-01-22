@@ -12,7 +12,7 @@
 @implementation MBNetWorkRequestConfiguration
 
 + (NSString *)getWebServerURL {
-    return @"http://lf.snssdk.com/neihan/";
+    return WEB_URL;
 }
 
 

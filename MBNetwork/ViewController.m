@@ -29,21 +29,33 @@
     TestResponseModel *response = [TestResponseModel new];
     request.requestTag = 1;
     [self requestNetworkWithRequestModel:request andResponseModel:response];
-    
- 
 }
 
+
+#pragma mark - MBNetworkDelegate
 - (void)beginRequestBlockWithRequest:(MBNetworkRequestModel *)requestModel {
-    NSLog(@"开始网络请求");
+    [super beginRequestBlockWithRequest:requestModel];
+    if (requestModel.requestTag == 1)
+    {
+        NSLog(@"开始网络请求");
+    }
 }
 
 - (void)succeedRequestBlockWithRequest:(MBNetworkRequestModel *)requestModel responseModel:(MBNetworkResponseModel *)responseModel {
-    NSLog(@"请求成功");
+    [super succeedRequestBlockWithRequest:requestModel responseModel:responseModel];
+    if (requestModel.requestTag == 1)
+    {
+        NSLog(@"请求成功");
+    }
 }
 
 
 - (void)failedRequestBlockWithRequest:(MBNetworkRequestModel *)requestModel responseModel:(MBNetworkResponseModel *)responseModel {
-    NSLog(@"请求失败");
+    [super failedRequestBlockWithRequest:requestModel responseModel:responseModel];
+    if (requestModel.requestTag == 1)
+    {
+        NSLog(@"请求失败");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -20,9 +20,7 @@ typedef void (^BeginRequestNetworkBlock) ( MBNetworkRequestModel *requestModel);
 typedef void (^FailedRequestNetworkBlock) (MBNetworkRequestModel *requestModel, MBNetworkResponseModel *respnseModel);
 typedef void (^SucceedRequestNetworkBlock) (MBNetworkRequestModel *requestModel, MBNetworkResponseModel *respnseModel);
 
-@interface MBNetWorkManager : NSObject<
-MBNetWorkManagerChildProtocol
->
+@interface MBNetWorkManager : NSObject 
 
 /*! 开始请求block参数 */
 @property (nonatomic,nonnull,strong) BeginRequestNetworkBlock beginRequestBlock;

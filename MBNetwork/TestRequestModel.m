@@ -44,13 +44,18 @@
     params[@"count"] = @"50";
     params[@"max_time"] = [NSString stringWithFormat:@"%.2f", [[NSDate date] timeIntervalSince1970]];
     
-    if ([params.allKeys containsObject:@"nh_delegate"]) {
+    if ([params.allKeys containsObject:@"nh_delegate"])
+    {
         [params removeObjectForKey:@"nh_delegate"];
     }
-    if ([params.allKeys containsObject:@"nh_isPost"]) {
+    
+    if ([params.allKeys containsObject:@"nh_isPost"])
+    {
         [params removeObjectForKey:@"nh_isPost"];
     }
-    if ([params.allKeys containsObject:@"nh_url"]) {
+    
+    if ([params.allKeys containsObject:@"nh_url"])
+    {
         [params removeObjectForKey:@"nh_url"];
     }
  

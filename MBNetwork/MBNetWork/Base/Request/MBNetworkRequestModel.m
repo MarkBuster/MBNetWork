@@ -8,23 +8,15 @@
 
 #import "MBNetworkRequestModel.h"
 
-@interface MBNetworkRequestModel () {
-   
-}
-
+@interface MBNetworkRequestModel ()
 @property (nonatomic, weak) id child;
 @end
 
 @implementation MBNetworkRequestModel
 
 - (instancetype)init {
-    if (self = [super init]) {
-//        if ([self conformsToProtocol:@protocol(MBRequestModelProtocol)]) {
-//            self.child = self;
-//        }else {
-//            NSLog(@"子类必须要实现这个MBRequestModelProtocol");
-//            NSAssert(NO, @"子类必须要实现这个MBRequestModelProtocol");
-//        }
+    if (self = [super init])
+    {
         _jsonDict = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -32,11 +24,13 @@
 
 
 - (NSDictionary *)analysisDataWithData:(id)responseData {
-    if (responseData) {
+    if (responseData)
+    {
         NSError *error;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&error];
         NSLog(@"json=%@",json);
-        if (json&&[json isKindOfClass:[NSDictionary class]]){
+        if (json&&[json isKindOfClass:[NSDictionary class]])
+        {
             return json;
         }
     }

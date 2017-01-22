@@ -9,8 +9,8 @@
 #import "MBNetWorkManager.h"
 #import <AFNetworking.h>
 #import "MBPostMethodRequest.h"
-@interface MBNetWorkManager ()
 
+@interface MBNetWorkManager ()
 @property (nonatomic, weak)id child;
 @end
 
@@ -39,8 +39,8 @@
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
     NSURLSessionTask *task = [NSURLSessionTask new];
-    task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        
+    task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
+    {
         if (error)
         {
             [responseModel analyzeErrorReason];
@@ -59,4 +59,5 @@
     }];
     [task resume];
 }
+
 @end

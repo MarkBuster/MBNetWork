@@ -30,6 +30,8 @@
 		18559DA0BBFBF1B9229CA36F /* Pods-MBNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBNetwork/Pods-MBNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		AB0EC77681F9A59F6F1B23FC /* libPods-MBNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6B1227558100765D274D2 /* Pods-MBNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBNetwork/Pods-MBNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		D10FF2C81E348F7E00B1B871 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		D10FF2C91E348FCB00B1B871 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D159CBFF1D967A6200F7DD7C /* MBNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D159CC031D967A6200F7DD7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D159CC051D967A6200F7DD7C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 				D159CC061D967A6200F7DD7C /* AppDelegate.m */,
 				D159CC081D967A6200F7DD7C /* ViewController.h */,
 				D159CC091D967A6200F7DD7C /* ViewController.m */,
+				D10FF2C81E348F7E00B1B871 /* Macro.h */,
+				D10FF2C91E348FCB00B1B871 /* PrefixHeader.pch */,
 				D159CC0E1D967A6200F7DD7C /* Assets.xcassets */,
 				D159CC101D967A6200F7DD7C /* LaunchScreen.storyboard */,
 				D159CC131D967A6200F7DD7C /* Info.plist */,
@@ -237,6 +241,7 @@
 				TargetAttributes = {
 					D159CBFE1D967A6200F7DD7C = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4JZRR82F52;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -450,7 +455,10 @@
 			baseConfigurationReference = 18559DA0BBFBF1B9229CA36F /* Pods-MBNetwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4JZRR82F52;
+				GCC_PREFIX_HEADER = MBNetwork/PrefixHeader.pch;
 				INFOPLIST_FILE = MBNetwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbn.cn.MBNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,7 +470,10 @@
 			baseConfigurationReference = B6A6B1227558100765D274D2 /* Pods-MBNetwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4JZRR82F52;
+				GCC_PREFIX_HEADER = MBNetwork/PrefixHeader.pch;
 				INFOPLIST_FILE = MBNetwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dbn.cn.MBNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";

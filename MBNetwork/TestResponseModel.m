@@ -12,9 +12,11 @@
 
 - (void)analysisAttrs:(NSDictionary *)attrsDict {
     
+    NSLog(@"attrsDict == %@", attrsDict);
 }
 
 - (void)analysisDomains:(NSDictionary *)domainDict {
     
+    NSLog(@"domainDict == %@", domainDict);
 }
 @end

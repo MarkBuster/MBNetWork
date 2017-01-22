@@ -11,6 +11,7 @@
 @interface MBNetworkResponseModel()
 @property (nonatomic, weak)id child;
 @end
+
 @implementation MBNetworkResponseModel
 
 - (instancetype)init {
@@ -35,36 +36,31 @@
         {
             json = (NSDictionary *)responseData;
         }
-        NSLog(@"接口返回的数据＝%@",json);
+//        NSLog(@"接口返回的数据＝%@",json);
         if ([json isKindOfClass:[NSDictionary class]])
         {
             NSArray * allkeys = [json allKeys];
-            if ([allkeys containsObject:@"r"])
+            if ([allkeys containsObject:@"attrs"])
             {
-                _r = [[json objectForKey:@"r"] integerValue];
+                [self.child analysisAttrs:[json objectForKey:@"attrs"]];
             }
-            if ([allkeys containsObject:@"m"])
+            
+            if ([allkeys containsObject:@"data"])
             {
-                _m = [json objectForKey:@"m"];
+                [self.child analysisDomains:[json objectForKey:@"data"]];
             }
-            if (_r != 0)
+            
+            if ([allkeys containsObject:@"message"])
             {
-                return;
-            }
-            else
-            {
-                if ([allkeys containsObject:@"d"])
+                NSString *message = [json objectForKey:@"message"];
+                if ([message isEqualToString:@"success"])
                 {
-                    NSDictionary * dDict = [json objectForKey:@"d"];
-                    NSArray * dAllkeys = [dDict allKeys];
-                    if ([dAllkeys containsObject:@"attrs"])
-                    {
-                        [self.child analysisAttrs:[dDict objectForKey:@"attrs"]];
-                    }
-                    if ([dAllkeys containsObject:@"domains"])
-                    {
-                        [self.child analysisDomains:[dDict objectForKey:@"domains"]];
-                    }
+                    _r = 0;
+                }
+                else
+                {
+                    _r = 1;
+                    _m = @"返回状态不成功";
                 }
             }
         }

@@ -13,11 +13,12 @@
 
 - (instancetype)initWithURL:(NSURL *)URL
 {
-    if (self = [super initWithURL:URL]) {
+    if (self = [super initWithURL:URL])
+    {
         [self setHTTPMethod:@"POST"];
         NSString *contentType = [NSString stringWithFormat:@"text/xml"];
         [self addValue:contentType forHTTPHeaderField:@"Content-Type"];
-//        [self setValue:[MBNetWorkRequestConfiguration getUserAgent] forHTTPHeaderField:@"User-Agent"];
+        [self setValue:[MBNetWorkRequestConfiguration getUserAgent] forHTTPHeaderField:@"User-Agent"];
     }
     return self;
 }
